@@ -8,26 +8,33 @@ import { Recipe } from './recipe.model';
 export class RecipeService{
     recipesChanged = new Subject<Recipe[]>();
 
-    private recipes: Recipe[] = [
-        new Recipe('Artichoke Pesto Pizza', 
-        'Made with homemade pizza dough and fresh herbs', 
-        'https://www.halfbakedharvest.com/wp-content/uploads/2019/01/Artichoke-Pesto-and-Burrata-Pizza-with-Lemony-Arugula-1.jpg',
-        [
-            new Ingredient('Pizza Dough', 1),  
-            new Ingredient('Artichokes', 3)  
+    // private recipes: Recipe[] = [
+    //     new Recipe('Artichoke Pesto Pizza', 
+    //     'Made with homemade pizza dough and fresh herbs', 
+    //     'https://www.halfbakedharvest.com/wp-content/uploads/2019/01/Artichoke-Pesto-and-Burrata-Pizza-with-Lemony-Arugula-1.jpg',
+    //     [
+    //         new Ingredient('Pizza Dough', 1),  
+    //         new Ingredient('Artichokes', 3)  
 
-        ]),
+    //     ]),
 
-        new Recipe('Greek Chicken Skillet', 
-        'A great make-ahead freezer option', 
-        'https://static.onecms.io/wp-content/uploads/sites/37/2019/12/RU325588.jpg',
-        [
-            new Ingredient('Chicken', 4),  
-            new Ingredient('Garlic Cloves', 2)  
-        ])
-      ];
+    //     new Recipe('Greek Chicken Skillet', 
+    //     'A great make-ahead freezer option', 
+    //     'https://static.onecms.io/wp-content/uploads/sites/37/2019/12/RU325588.jpg',
+    //     [
+    //         new Ingredient('Chicken', 4),  
+    //         new Ingredient('Garlic Cloves', 2)  
+    //     ])
+    //   ];
+
+        private recipes: Recipe[] = [];
 
       constructor(private slService: ShoppingListService){}
+
+    setRecipes(recipes: Recipe[]){
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+    }
 
     getRecipes(){
         return this.recipes.slice();
