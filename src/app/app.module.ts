@@ -17,6 +17,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipes.service';
+import { AlertComponent } from './shared/alert/alert.component';
+import { AuthComponent } from './auth/auth.component';
+import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { RecipeService } from './recipes/recipes.service';
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AlertComponent,
+    AuthComponent,
+    PlaceholderDirective,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +48,9 @@ import { RecipeService } from './recipes/recipes.service';
     AppRoutingModule
   ],
   providers: [ShoppingListService, RecipeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AlertComponent
+  ]
 })
 export class AppModule { }
