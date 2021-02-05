@@ -18,8 +18,6 @@ export class AuthComponent implements OnDestroy{
 
   private closeSub: Subscription;
 
-  private closeSub: Subscription;
-
   constructor(private authService: AuthService, 
       private router: Router,
       private componentFactoryResolver: ComponentFactoryResolver ) { }
